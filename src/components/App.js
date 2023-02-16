@@ -5,10 +5,12 @@ import "../styles/App.css";
 // import RegisterPage from "./RegisterPage";
 // import AddAnswer from "./AddAnswer";
 // import LoginPage from "./LoginPage";
+import Header from "./Header";
 import QAPage from "./QAPage";
 const App = () => {
   return (
     <div>
+      <Header />
       {/* <BrowserRouter> */}
       {/* <Routes> */}
       {/* <Route path="/" element={<Header />} /> */}
