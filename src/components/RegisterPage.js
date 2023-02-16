@@ -1,11 +1,12 @@
+import React from "react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function RegisterPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const history = useHistory();
+  // const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -23,7 +24,7 @@ function RegisterPage() {
     event.preventDefault();
     // TODO: send request to server API to register new user
     // if registration succeeds, redirect user to the main page
-    history.push("/");
+    // navigate("/");
   };
 
   return (
