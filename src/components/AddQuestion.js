@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import "../styles/addQ.css";
 // import { useNavigate } from "react-router-dom";
 
 function AddQuestion() {
   const [question, setQuestion] = useState("");
   // const navigate = useNavigate();
 
-  const handleAddQuestion = (event) => {
+  function handleAddQuestion(event) {
     event.preventDefault();
     // if (question.trim() === "") {
     //   alert("Please enter a valid question.");
@@ -21,9 +22,9 @@ function AddQuestion() {
     //   // add the new question to the questions array
     //   setQuestion((prevQuestions) => [...prevQuestions, newQuestion]);
     //   // redirect to the main page
-    //   navigate("/");
+    // navigate("/");
     // }
-  };
+  }
 
   const handleCancel = () => {
     // redirect to the main page
@@ -33,11 +34,14 @@ function AddQuestion() {
   return (
     <div className="add-question">
       <h2>Add Question</h2>
+
       <form onSubmit={handleAddQuestion}>
         <label htmlFor="question">Question:</label>
         <input
+          className="input_text"
           type="text"
           id="question"
+          placeholder="Type Your Question here ....."
           value={question}
           onChange={(event) => setQuestion(event.target.value)}
         />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/addAns.css";
 // import { useNavigate } from "react-router-dom";
 
 function AddAnswer() {
@@ -59,7 +60,7 @@ function AddAnswer() {
           value={answer}
           onChange={(event) => setAnswer(event.target.value)}
         ></textarea>
-        <div className="button-container">
+        <div className="button_container">
           <button type="submit">Add Answer</button>
           <button type="button" onClick={handleCancel}>
             Cancel

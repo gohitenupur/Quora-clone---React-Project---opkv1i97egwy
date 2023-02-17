@@ -1,0 +1,9 @@
+.button_container button {
+  margin-right: 25px;
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border: none;
+  height: 40px;
+  padding: 10px;
+}

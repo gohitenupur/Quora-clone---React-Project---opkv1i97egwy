@@ -9,12 +9,12 @@ function QuestionAnswerList() {
         <div className="post-top-left">
           <img
             className="post-profile-image"
-            // src={user.filter((u) => u.id)[0].photo}
+            // src={user.filter((u) => u.id===qa.id)[0].photo}
             alt=""
           />
           <span className="post-user-name">
             name
-            {/* {user.filter((u) => u.id)[0].username} */}
+            {/* {user.filter((u) => u.id === qa.id)[0].username} */}
           </span>
         </div>
         <hr className="share-hr" />
