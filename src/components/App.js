@@ -6,17 +6,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import AddAnswer from "./AddAnswer";
 // import LoginPage from "./LoginPage";
 import Header from "./Header";
-// import QAPage from "./QAPage";
+import QAPage from "./QAPage";
 const App = () => {
   return (
-    <div>
+    <div className="main">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Header />} />
           {/* <Route path="/AddQuestion" element={<AddQuestion />} /> */}
         </Routes>
       </BrowserRouter>
-      {/* <QAPage /> */}
+      <QAPage />
       {/* <AddQuestion /> */}
       {/* <AddAnswer /> */}
       {/* <LoginPage /> */}
