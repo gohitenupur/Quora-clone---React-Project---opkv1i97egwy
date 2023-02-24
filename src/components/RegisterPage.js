@@ -24,12 +24,17 @@ function RegisterPage() {
     event.preventDefault();
     // TODO: send request to server API to register new user
     // if registration succeeds, redirect user to the main page
-    navigate("/");
+    if (!username || !password || !email) {
+      window.alert("all fields are required");
+      navigate("/register");
+    } else {
+      navigate("/");
+    }
   };
 
   return (
     <div className="container">
-      <h1 >Register</h1>
+      <h1>Register</h1>
       <form className="form" onSubmit={handleSubmit}>
         <label>
           Username:
@@ -51,7 +56,7 @@ function RegisterPage() {
         </label>
         <br />
         <button type="submit">Register</button>
-         <Link to='/'>Already registered user please login</Link>
+        <Link to="/">Already registered user please login</Link>
       </form>
     </div>
   );

@@ -1,4 +1,4 @@
-import React,{useState}from "react";
+import React, { useState } from "react";
 import "../styles/header.css";
 import { useNavigate } from "react-router-dom";
 import { qa } from "./data";
@@ -10,7 +10,6 @@ function Header() {
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
-    <QuestionAnswerList qa={filteredQA} />
   };
 
   const filteredQA = qa.filter(
@@ -41,6 +40,7 @@ function Header() {
             onChange={handleSearchChange}
             className="search-input"
           />
+          {/* <QuestionAnswerList qa={filteredQA} /> */}
         </div>
         <div className="header_btn">
           <button onClick={handleAddQ}>Add Question</button>
