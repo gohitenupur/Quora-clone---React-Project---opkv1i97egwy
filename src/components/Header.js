@@ -1,19 +1,51 @@
-import React from "react";
+import React,{useState}from "react";
 import "../styles/header.css";
-// import MaterialIcon from "material-icons-react";
+import { useNavigate } from "react-router-dom";
+import { qa } from "./data";
+import QuestionAnswerList from "./QuestionAnswerList";
 function Header() {
+  const navigate = useNavigate();
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+    <QuestionAnswerList qa={filteredQA} />
+  };
+
+  const filteredQA = qa.filter(
+    (q) =>
+      q.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      q.answer.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  function handleAddQ() {
+    navigate("/addQ");
+  }
+  function hendleAnsQ() {
+    navigate("/addAns");
+  }
+  function hendleLogout() {
+    navigate("/");
+  }
+
   return (
     <>
       <div className="header_container">
         <h1 className="logo">Quora</h1>
         <div className="header_search">
-          {/* <MaterialIcon /> */}
-          <input type="text" placeholder="Search for questions" />
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+            className="search-input"
+          />
         </div>
         <div className="header_btn">
-          <button>Add Question</button>
-          <button>Answer Question</button>
-          <button>Login</button>
+          <button onClick={handleAddQ}>Add Question</button>
+          <button onClick={hendleAnsQ}>Answer Question</button>
+          <button onClick={hendleLogout}>Log out</button>
         </div>
       </div>
     </>

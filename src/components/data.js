@@ -1,70 +1,71 @@
+
 export const user = [
   {
     id: "1",
-    photo: "Assets/person/person1.jfif",
-    username: "kamal rastogi",
+    photo: "../assets/person/person1.jfif",
+    username: "nupur",
     password: "12345",
     email: "hello@gmail.com"
   },
   {
     id: "2",
-    photo: "Assets/person/person2.jfif",
+    photo: "../assets/person/person2.jfif",
     username: "johndoe",
     password: "password123",
     email: "johndoe@example.com"
   },
   {
     id: "3",
-    photo: "Assets/person/person1.jfif",
+    photo: "../assets/person/person1.jfif",
     username: "janedoe",
     password: "password456",
     email: "janedoe@example.com"
   },
   {
     id: "4",
-    photo: "Assets/person/person2.jfif",
+    photo: "../assets/person/person2.jfif",
     username: "bobsmith",
     password: "qwerty",
     email: "bobsmith@example.com"
   },
   {
     id: "5",
-    photo: "Assets/person/person3.jfif",
+    photo: "../assets/person/person3.jfif",
     username: "sarahjones",
     password: "letmein",
     email: "sarahjones@example.com"
   },
   {
     id: "6",
-    photo: "Assets/person/person2.jfif",
+    photo: "../assets/person/person2.jfif",
     username: "mikebrown",
     password: "123abc",
     email: "mikebrown@example.com"
   },
   {
     id: "7",
-    photo: "Assets/person/person1.jfif",
+    photo: "../assets/person/person1.jfif",
     username: "laurawilliams",
     password: "password789",
     email: "laurawilliams@example.com"
   },
   {
     id: "8",
-    photo: "Assets/person/person3.jpg",
+    photo: "../assets/person/person3.jpg",
     username: "davidsmith",
     password: "abc123",
     email: "davidsmith@example.com"
   },
   {
     id: "9",
-    photo: "Assets/person/person4.jpg",
+    photo: "../assets/person/person4.jpg",
     username: "jenniferlee",
     password: "password321",
     email: "jenniferlee@example.com"
   },
   {
     id: "10",
-    photo: "Assets/person/person5.jpg",
+    photo: "../assets/person/person5.jpg",
     username: "alexanderwang",
     password: "wang123",
     email: "alexanderwang@example.com"
@@ -76,7 +77,7 @@ export const qa = [
     id: "1",
     answeredBy: "kamal rastogi",
     questionedBy: "arun tiwari",
-    question: "What is the famous food of Agra...................?",
+    question: "What is the famous food of Agra?",
     answer: "Petha is the famous sweet of Agra"
   },
   {
@@ -144,10 +145,3 @@ export const qa = [
   }
 ];
 
-// // Convert the data to JSON strings
-// const questionAndAnswersString = JSON.stringify(questionAndAnswers);
-// const usersString = JSON.stringify(users);
-
-// // Save the data to localStorage
-// localStorage.setItem("questionAndAnswers", questionAndAnswersString);
-// localStorage.setItem("users", usersString);

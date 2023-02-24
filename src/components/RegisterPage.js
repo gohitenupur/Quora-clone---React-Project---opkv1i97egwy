@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function RegisterPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -24,13 +24,13 @@ function RegisterPage() {
     event.preventDefault();
     // TODO: send request to server API to register new user
     // if registration succeeds, redirect user to the main page
-    // navigate("/");
+    navigate("/");
   };
 
   return (
-    <div>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="container">
+      <h1 >Register</h1>
+      <form className="form" onSubmit={handleSubmit}>
         <label>
           Username:
           <input type="text" value={username} onChange={handleUsernameChange} />
@@ -46,11 +46,12 @@ function RegisterPage() {
         </label>
         <br />
         <label>
-          Email:
+          Email :
           <input type="email" value={email} onChange={handleEmailChange} />
         </label>
         <br />
         <button type="submit">Register</button>
+         <Link to='/'>Already registered user please login</Link>
       </form>
     </div>
   );

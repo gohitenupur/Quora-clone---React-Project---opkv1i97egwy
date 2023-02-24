@@ -1,42 +1,36 @@
 import React, { useState } from "react";
 import "../styles/addAns.css";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { qa } from "./data";
 
 function AddAnswer() {
   const [selectedQuestion, setSelectedQuestion] = useState("");
   const [answer, setAnswer] = useState([]);
-  // // const navigate = useNavigate();
-  // const questions = [
-  //   {
-  //     id: "1",
-  //     answeredBy: "kamal rastogi",
-  //     questionedBy: "arun tiwari",
-  //     question: "What is the famous food of Agra?",
-  //     answer: "Petha is the famous sweet of Agra"
-  //   }
-  // ];
+  // const [question, setQuestions] = useState([]);
+  const navigate = useNavigate();
 
   const handleAddAnswer = (event) => {
     event.preventDefault();
-    // if (selectedQuestion === "" || answer.trim() === "") {
-    //   alert("Please select a question and enter a valid answer.");
-    // } else {
-    //   // update the answer of the selected question
-    //   const updatedQuestions = questions.map((q) =>
-    //     q.id === selectedQuestion ? { ...q, answer: answer.trim() } : q
-    //   );
-    //   // update the questions array in the parent component
-    //   setQuestions(updatedQuestions);
-    //   // redirect to the main page
-    //   // navigate("/");
-    // }
+
+    const question = qa.find((q) => q.id === selectedQuestion);
+    const newAnswer = {
+      id: Date.now(),
+      answer: answer,
+    };
+    question.answers.push(newAnswer);
+    setAnswer("");
+    navigate("/home");
+
+  
   };
 
   const handleCancel = () => {
-    // redirect to the main page
-    // navigate("/");
+    setAnswer("");
   };
 
+  const handleAddAns=()=>{
+    navigate("/home");
+  }
   return (
     <div className="add-answer">
       <h2>Add Answer</h2>
@@ -48,11 +42,11 @@ function AddAnswer() {
           onChange={(event) => setSelectedQuestion(event.target.value)}
         >
           <option value="">Select a question</option>
-          {/* {questions.map((q) => (
+          {qa.map((q) => (
             <option key={q.id} value={q.id}>
               {q.question}
             </option>
-          ))} */}
+          ))}
         </select>
         <label htmlFor="answer">Answer:</label>
         <textarea
@@ -61,10 +55,8 @@ function AddAnswer() {
           onChange={(event) => setAnswer(event.target.value)}
         ></textarea>
         <div className="button_container">
-          <button type="submit">Add Answer</button>
-          <button type="button" onClick={handleCancel}>
-            Cancel
-          </button>
+          <button type="submit" onClick={handleAddAns}>Add Answer</button>
+          <button type="button" onClick={handleCancel}>Cancel</button>
         </div>
       </form>
     </div>

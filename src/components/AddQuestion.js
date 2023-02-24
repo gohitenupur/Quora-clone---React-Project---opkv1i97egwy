@@ -1,40 +1,36 @@
 import React, { useState } from "react";
 import "../styles/addQ.css";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {qa} from './data'
 
 function AddQuestion() {
   const [question, setQuestion] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   function handleAddQuestion(event) {
     event.preventDefault();
-    // if (question.trim() === "") {
-    //   alert("Please enter a valid question.");
-    // } else {
-    //   // create a new question object with a unique ID
-    //   const newQuestion = {
-    //     id: new Date().getTime(),
-    //     question: question.trim(),
-    //     answer: "",
-    //     category: "General",
-    //     tags: []
-    //   };
-    //   // add the new question to the questions array
-    //   setQuestion((prevQuestions) => [...prevQuestions, newQuestion]);
-    //   // redirect to the main page
-    // navigate("/");
-    // }
+    if (question.trim() === "") {
+      window.alert("Do not add empty questions.");
+      return; // do not add empty questions
+    }
+    const newQuestion = {
+      id: qa.length + 1,
+      answeredBy: "harsh verma",
+      questionedBy: "prateek jain",
+      question: question.trim(),
+      answers: [],
+    };
+    qa.push(newQuestion);
+    setQuestion(""); // clear input field
+    navigate("/home"); // redirect to main page
   }
-
   const handleCancel = () => {
-    // redirect to the main page
-    // navigate("/");
+    setQuestion("");
   };
 
   return (
     <div className="add-question">
       <h2>Add Question</h2>
-
       <form onSubmit={handleAddQuestion}>
         <label htmlFor="question">Question:</label>
         <input
@@ -56,4 +52,4 @@ function AddQuestion() {
   );
 }
 
-export default AddQuestion;
+export default AddQuestion

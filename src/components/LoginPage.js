@@ -1,46 +1,53 @@
 import React from "react";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import "../styles/login.css";
+import { Link, useNavigate } from "react-router-dom";
+import {user} from './data'
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const handleUsernameChange = (event) => {
+  function handleUsername(event) {
     setUsername(event.target.value);
-  };
+  }
 
-  const handlePasswordChange = (event) => {
+  const handlePassword = (event) => {
     setPassword(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO: send request to server API to authenticate user's credentials
-    // if authentication succeeds, redirect user to the main page
-    // navigate("/")
+   const userMatch = user.find(
+      (u) => u.username === username && u.password === password
+    );
+    if (userMatch) {
+      // If user is found, redirect to the main page
+      navigate("/home");
+    } else {
+      // If user is not found, display error message
+      window.alert("Invalid username or password.");
+    }
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <p>For test username: nupur ,password :12345</p>
+      <form className="form" onSubmit={handleSubmit}>
+        <label className="input">
           Username:
-          <input type="text" value={username} onChange={handleUsernameChange} />
+          <input type="text" value={username} onChange={handleUsername} />
         </label>
         <br />
-        <label>
+        <label className="input">
           Password:
-          <input
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
+          <input type="password" value={password} onChange={handlePassword} />
         </label>
         <br />
         <button type="submit">Login</button>
+        <p>New user Please <Link to="/register">Register</Link></p>
       </form>
     </div>
   );
